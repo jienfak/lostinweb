@@ -1,0 +1,12 @@
+#!/usr/bin/env rc
+if(test $#* -eq 0){
+	exit 1
+}
+rpath = `{dirname `{readlink -f $0} }
+. $rpath/module/std_scan.rc
+for(user in $*){
+	scan 'https://instagram.com/%s' \
+		$user \
+		$std_head \
+		'The link you followed may be broken' &
+}

@@ -1,0 +1,19 @@
+# This module provides the most used way getting users page status.
+std_head = 'Accept-Language: en'
+fn scan {
+	url = $1
+	user = $2
+	head = $3
+	scan = $4
+	opt =  $5
+	rurl = `{printf $url $user}
+	chk = \
+	`{
+		curl -s -i -H $head -L $rurl | \
+			grep -o $scan
+		echo $status
+	}
+	if( ~ $chk *'|1'* ){
+		echo $rurl 
+	}
+}
