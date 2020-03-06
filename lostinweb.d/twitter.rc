@@ -8,5 +8,5 @@ for(user in $*){
 	scan 'https://twitter.com/%s' \
 		$user \
 		$std_head \
-		'Page doesn''t exist' &
+		'page doesn’t exist!' &
 }

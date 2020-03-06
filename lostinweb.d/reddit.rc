@@ -8,5 +8,6 @@ for(user in $*){
 	scan 'https://reddit.com/user/%s' \
 		$user \
 		$std_head \
-		'The link you followed may be broken' &
+		'page not found'  \
+		 (-i --user-agent $std_user_agent )& 
 }

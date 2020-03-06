@@ -5,8 +5,9 @@ if(test $#* -eq 0){
 rpath = `{dirname `{readlink -f $0} }
 . $rpath/module/std_scan.rc
 for(user in $*){
-	scan 'https://about.com/%s' \
+	scan 'https://about.me/%s' \
 		$user \
 		$std_head \
-		'HTTP/2 404' &
+		'HTTP/2 404' \
+		(-i ) &
 }

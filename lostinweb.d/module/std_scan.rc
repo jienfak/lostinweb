@@ -1,5 +1,6 @@
 # This module provides the most used way getting users page status.
 std_head = 'Accept-Language: en'
+std_user_agent = '"Mozilla/5.0 (X11; U; Linux i686; en-US; rv:0.9.3) Gecko/20010801"'
 fn scan {
 	url = $1
 	user = $2
@@ -9,7 +10,7 @@ fn scan {
 	rurl = `{printf $url $user}
 	chk = \
 	`{
-		curl -s -i -H $head -L $rurl | \
+		curl -s -H $head -L $opt $rurl | \
 			grep -o $scan
 		echo $status
 	}

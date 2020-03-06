@@ -8,5 +8,6 @@ for(user in $*){
 	scan 'https://%s.deviantart.com' \
 		$user \
 		$std_head \
-		'HTTP/2 404' &
+		'HTTP/2 404' \
+		(-i) &
 }
